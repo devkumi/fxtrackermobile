@@ -1,7 +1,9 @@
 import { add, format } from 'date-fns';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
+import Header from './src/Header';
+import CardContainer from './src/CardContainer';
 
 
 const initcapital = 9000;
@@ -99,7 +101,8 @@ export default function App() {
       <Text>Initcapital: {initcapital.toLocaleString()}</Text>
       <Text>Profit: {(capital() - initcapital).toLocaleString()}</Text>
       {/* <StatusBar style="auto" /> */}
-      <LinearGradient style={styles.background1} locations={[0,0,1]} colors={['#fff','#f8f8ff','#f8f8ff']} useAngle={true} angle={258.22} />
+      <Header/>
+      <CardContainer/>
     </View>
   );
 }
@@ -115,6 +118,8 @@ const styles = StyleSheet.create({
   pagebackground: {
     marginTop: StatusBar.currentHeight || 0,
     backgroundColor: "#fff",
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
     width: "100%",
     height: 812

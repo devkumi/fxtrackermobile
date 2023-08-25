@@ -1,6 +1,8 @@
 import { add, format } from 'date-fns';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { LinearGradient } from "expo-linear-gradient";
+
 
 const initcapital = 9000;
 const rate = 0.065;
@@ -92,11 +94,12 @@ const capitaldetails = () => {
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.pagebackground}>
       <Text>Total: {capital().toLocaleString()}</Text>
       <Text>Initcapital: {initcapital.toLocaleString()}</Text>
       <Text>Profit: {(capital() - initcapital).toLocaleString()}</Text>
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
+      <LinearGradient style={styles.background1} locations={[0,0,1]} colors={['#fff','#f8f8ff','#f8f8ff']} useAngle={true} angle={258.22} />
     </View>
   );
 }
@@ -104,8 +107,31 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  pagebackground: {
+    marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: "#fff",
+    flex: 1,
+    width: "100%",
+    height: 812
+    },
+    background1: {
+      borderRadius: 12,
+      shadowColor: "rgba(0, 0, 0, 0.25)",
+      shadowOffset: {
+      width: 0,
+      height: 4
+      },
+      shadowRadius: 24,
+      elevation: 24,
+      shadowOpacity: 1,
+      flex: 1,
+      width: "100%",
+      height: 170,
+      backgroundColor: "transparent"
+      }
 });
